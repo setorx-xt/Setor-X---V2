@@ -13,5 +13,5 @@
 // Use a anon public key / publishable key.
 // NUNCA use service_role no front-end.
 
-window.SETORX_SUPABASE_URL = "COLE_AQUI_A_URL_DO_SUPABASE";
-window.SETORX_SUPABASE_ANON_KEY = "COLE_AQUI_A_CHAVE_PUBLICA_ANON";
+window.SETORX_SUPABASE_URL = "https://sqidobmpseefhqehqtfd.supabase.co/";
+window.SETORX_SUPABASE_ANON_KEY = "sb_publishable_14-bQsk5jfszSq1k8TTVyQ_wzyZCUtZ";

@@ -1,0 +1,41 @@
+
+/* Setor X V10 — planejamento estável e ranking corrigido */
+.sx-v10-stable-plan #online-my-plan{
+  min-height:220px;
+  transition:opacity .18s ease;
+}
+.sx-v10-plan-hero{
+  border-color:rgba(255,202,100,.24)!important;
+}
+.sx-v10-plan-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+.sx-v10-plan-meta b{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:5px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,202,100,.20);
+  background:rgba(220,174,79,.08);
+  color:var(--gold2);
+  margin-right:4px;
+}
+.online-rank-row.me{
+  border-color:rgba(255,202,100,.42)!important;
+  background:rgba(220,174,79,.12)!important;
+  box-shadow:0 0 0 1px rgba(220,174,79,.08),0 16px 46px rgba(0,0,0,.18);
+}
+.online-rank-row .rank-pos{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:rgba(220,174,79,.12);
+  color:var(--gold2);
+  font-weight:1000;
+}

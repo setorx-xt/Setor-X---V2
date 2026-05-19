@@ -1,0 +1,102 @@
+
+/* SETOR X V7 — correção crítica planejamento + Vade */
+.sx-vade-reader{
+  position:fixed;
+  inset:0;
+  z-index:20000;
+  display:grid;
+  place-items:center;
+  padding:18px;
+  background:rgba(0,0,0,.74);
+  backdrop-filter:blur(8px);
+  overflow:auto;
+}
+.sx-vade-reader[hidden]{display:none!important}
+.sx-vade-reader-bg{position:absolute;inset:0}
+.sx-vade-reader-box{
+  position:relative;
+  z-index:2;
+  width:min(1180px,96vw);
+  max-height:92vh;
+  overflow:auto;
+  border:1px solid rgba(255,202,100,.22);
+  border-radius:28px;
+  background:#07111f;
+  box-shadow:0 30px 110px rgba(0,0,0,.62);
+  padding:18px;
+}
+.sx-vade-reader-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  padding-bottom:14px;
+  margin-bottom:14px;
+}
+.sx-vade-reader-head h2{margin:.25rem 0;color:#fff;letter-spacing:-.04em}
+.sx-vade-reader-head span{color:var(--muted);font-weight:760}
+.sx-vade-reader-tools{
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) 190px auto;
+  gap:10px;
+  align-items:center;
+  margin-bottom:14px;
+}
+.sx-vade-reader-tools input,
+.sx-vade-reader-tools select{
+  min-height:44px;
+  border-radius:13px;
+  border:1px solid var(--border);
+  background:rgba(0,0,0,.24);
+  color:var(--text);
+  padding:9px 11px;
+}
+.sx-vade-reader-tools strong{color:var(--gold2)}
+.sx-vade-reader-articles{display:grid;gap:12px}
+.sx-vade-reader-article{
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:rgba(255,255,255,.04);
+}
+.sx-vade-reader-article.read{border-color:rgba(57,217,138,.24)}
+.sx-vade-reader-article.review{box-shadow:inset 0 0 0 1px rgba(255,202,100,.22)}
+.sx-vade-reader-article-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+  margin-bottom:10px;
+}
+.sx-vade-reader-article-head strong{color:#fff}
+.sx-vade-reader-text{
+  color:var(--text);
+  line-height:1.75;
+  white-space:pre-wrap;
+}
+.sx-vade-reader-text mark{
+  background:#fff3a3;
+  color:#07111f;
+  border-radius:5px;
+  padding:1px 3px;
+}
+.sx-vade-reader-article textarea{
+  width:100%;
+  min-height:72px;
+  margin-top:10px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(0,0,0,.20);
+  color:var(--text);
+  padding:10px;
+  resize:vertical;
+}
+[data-v7-send-plan][disabled]{
+  opacity:.65;
+  cursor:wait;
+}
+@media(max-width:760px){
+  .sx-vade-reader-tools{grid-template-columns:1fr}
+  .sx-vade-reader-head,.sx-vade-reader-article-head{display:grid}
+}

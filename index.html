@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48.png" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="application-name" content="Setor X Online" />
+  <meta name="apple-mobile-web-app-title" content="Setor X" />
+  <meta property="og:title" content="Setor X Online" />
+  <meta property="og:description" content="Plataforma online de mentoria, planejamento, Banco QX, ranking e patentes." />
+  <meta property="og:image" content="assets/images/setorx-emblema.png" />
+  <title>Setor X Online | Plataforma de Mentoria</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=20260519-mentor-final" />
+  <link rel="stylesheet" href="assets/css/qx-enhancements.css?v=20260519-mentor-final" />
+  <link rel="stylesheet" href="assets/css/vade-mecum.css?v=20260519-mentor-final" />
+  <link rel="stylesheet" href="assets/css/workspace-pro.css?v=20260519-mentor-final" />
+  <link rel="stylesheet" href="assets/css/setorx-pro-v23.css?v=20260519-mentor-final" />
+  <link rel="stylesheet" href="assets/css/setorx-pro-v27-hotfix.css?v=20260519-mentor-final" />
+  <link rel="stylesheet" href="assets/css/online-pro.css?v=20260519-mentor-final" />
+  <link rel="stylesheet" href="assets/css/v30-module-router.css?v=20260519-mentor-final" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/setorx-critical-fix-v7.css?v=20260519-v7-critical" />
+</head>
+<body>
+  <div id="app-shell" class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard">
+        <span class="brand-logo brand-logo-image" aria-hidden="true"><img src="assets/images/setorx-emblema.png" alt="" /></span>
+        <span class="brand-text">
+          <strong>Setor X</strong>
+          <small>Plataforma Online de Mentoria</small>
+        </span>
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-link active"><i class="fa-solid fa-table-columns"></i><span>Centro de Comando</span></a>
+        <a href="#alertas" class="nav-link"><i class="fa-solid fa-triangle-exclamation"></i><span>Alertas</span></a>
+        <a href="#revisoes" class="nav-link"><i class="fa-solid fa-rotate"></i><span>Revisões</span></a>
+        <a href="#calendario" class="nav-link"><i class="fa-solid fa-calendar-days"></i><span>Calendário</span></a>
+        <a href="#planejamento-semanal" class="nav-link"><i class="fa-solid fa-clipboard-list"></i><span>Planejamento</span></a>
+        <a href="#edital" class="nav-link"><i class="fa-solid fa-file-shield"></i><span>Matriz do Edital</span></a>
+        <a href="#meta-questoes" class="nav-link"><i class="fa-solid fa-bullseye"></i><span>Meta Operacional</span></a>
+        <a href="#questoes" class="nav-link"><i class="fa-solid fa-scale-balanced"></i><span>Banco QX</span></a>
+        <a href="#resumos" class="nav-link"><i class="fa-solid fa-book-open"></i><span>Resumos</span></a>
+        <a href="#prompts-ia" class="nav-link"><i class="fa-solid fa-terminal"></i><span>Prompts IA</span></a>
+        <a href="#simulados" class="nav-link"><i class="fa-solid fa-file-circle-check"></i><span>Simulados PRO</span></a>
+        <a href="#pomodoro" class="nav-link"><i class="fa-solid fa-stopwatch-20"></i><span>Foco Tático</span></a>
+        <a href="#taf" class="nav-link"><i class="fa-solid fa-person-running"></i><span>Performance Física</span></a>
+        <a href="#leis" class="nav-link"><i class="fa-solid fa-landmark"></i><span>Lei Seca/Juris</span></a>
+        <a href="#cursos" class="nav-link"><i class="fa-solid fa-graduation-cap"></i><span>Cursos</span></a>
+        <a href="#patentes" class="nav-link"><i class="fa-solid fa-ranking-star"></i><span>Patentes</span></a>
+        <a href="#licenca" class="nav-link"><i class="fa-solid fa-shield-halved"></i><span>Licença</span></a>
+        <a href="#backup" class="nav-link"><i class="fa-solid fa-database"></i><span>Backup</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span id="sidebar-rank">Recruta</span>
+        <small id="sidebar-xp">0 XP operacional</small>
+      </div>
+    </aside>
+
+    <div class="main-frame">
+      <header class="topbar">
+        <button id="sidebar-toggle" class="icon-btn" type="button" title="Recolher/expandir menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+
+        <div class="topbar-title">
+          <p class="eyebrow">Comando operacional</p>
+          <h1>Setor X — comando, questões, simulados e performance</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <div id="top-rank-badge" class="rank-chip"></div>
+          <a class="primary-btn small" href="#pomodoro"><i class="fa-solid fa-play"></i> Iniciar missão</a>
+        </div>
+      </header>
+
+      <main class="content">
+        <section id="dashboard" class="hero-grid">
+          <article class="hero-card glass-card">
+            <div class="hero-main">
+              <p class="eyebrow"><i class="fa-solid fa-crosshairs"></i> Painel tático</p>
+              <h2>Questões, revisão e simulado no padrão de aprovação.</h2>
+              <p>Cadastre o edital, defina a meta de questões, pratique em modo QConcursos + Anki, corrija simulados e acompanhe peso/TAF até a data-alvo.</p>
+              <div class="hero-actions">
+                <button id="quick-start" class="primary-btn" type="button"><i class="fa-solid fa-bolt"></i> Foco imediato</button>
+                <a class="secondary-btn" href="#questoes"><i class="fa-solid fa-scale-balanced"></i> Resolver questões</a>
+              </div>
+            </div>
+
+            <aside class="ops-brief">
+              <div class="ops-brief-head">
+                <span><i class="fa-solid fa-bullhorn"></i> Mensagem operacional</span>
+                <button id="local-briefing" class="mini-btn" type="button" title="Nova mensagem"><i class="fa-solid fa-rotate"></i></button>
+              </div>
+              <blockquote id="daily-briefing">Questão feita sem correção vira volume vazio. Questão revisada vira domínio.</blockquote>
+              <small id="phase-small">Fase: aguardando edital</small>
+            </aside>
+          </article>
+
+          <article class="countdown-card glass-card">
+            <p class="eyebrow"><i class="fa-solid fa-bullseye"></i> Data-alvo</p>
+            <div class="countdown-number"><span id="days-left">--</span><small>Dias</small></div>
+            <p id="countdown-label">dias para a prova</p>
+            <div class="mini-progress">
+              <span id="phase-label">Fase operacional</span>
+              <div class="progress-track"><div id="phase-progress" class="progress-fill"></div></div>
+            </div>
+          </article>
+
+          <section class="kpi-grid">
+            <article class="kpi-card">
+              <span>Questões totais</span>
+              <strong id="kpi-questions-total">0</strong>
+              <small id="kpi-questions-target">Meta: 20.000</small>
+            </article>
+            <article class="kpi-card">
+              <span>Revisões vencidas</span>
+              <strong id="kpi-reviews-due">0</strong>
+              <small>Questões atrasadas</small>
+            </article>
+            <article class="kpi-card">
+              <span>Revisões a fazer</span>
+              <strong id="kpi-reviews-total">0</strong>
+              <small>Base de questões com revisão</small>
+            </article>
+            <article class="kpi-card">
+              <span>Kgs atuais</span>
+              <strong id="kpi-weight">--</strong>
+              <small id="kpi-weight-label">Sem registro</small>
+            </article>
+          </section>
+        </section>
+
+
+        <section id="calendario" class="glass-card section-block calendar-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-calendar-days"></i> Frequência</p>
+              <h2>Calendário de Estudos</h2>
+              <span class="section-subtitle">Ritmo mensal baseado em foco, questões, simulados, resumos e registros de TAF.</span>
+            </div>
+            <div class="calendar-actions">
+              <button id="calendar-prev" class="ghost-btn small" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+              <button id="calendar-today" class="secondary-btn small" type="button">Hoje</button>
+              <button id="calendar-next" class="ghost-btn small" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+
+          <div class="calendar-kpis">
+            <div><span>Dias ativos no mês</span><strong id="cal-active-days">0</strong></div>
+            <div><span>Frequência</span><strong id="cal-frequency">0%</strong></div>
+            <div><span>Ritmo</span><strong id="cal-rhythm">Sem dados</strong></div>
+            <div><span>Sequência atual</span><strong id="cal-streak">0 dias</strong></div>
+          </div>
+
+          <div class="calendar-panel">
+            <div class="calendar-head">
+              <strong id="calendar-title">Mês atual</strong>
+              <span id="calendar-subtitle">Resumo operacional do mês</span>
+            </div>
+            <div class="calendar-weekdays">
+              <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+            </div>
+            <div id="study-calendar-grid" class="study-calendar-grid"></div>
+          </div>
+
+
+          <form id="calendar-event-form" class="calendar-event-form">
+            <div>
+              <strong><i class="fa-solid fa-calendar-plus"></i> Marcar data importante</strong>
+              <span>Registre exame médico, outro concurso, TAF, viagem, entrega de documento ou revisão especial.</span>
+            </div>
+            <label>Data
+              <input id="calendar-event-date" type="date" />
+            </label>
+            <label>Tipo
+              <select id="calendar-event-type">
+                <option value="prova">Prova / outro concurso</option>
+                <option value="exame">Exame médico</option>
+                <option value="taf">TAF</option>
+                <option value="documento">Documento</option>
+                <option value="estudo">Revisão / estudo especial</option>
+                <option value="outro">Outro</option>
+              </select>
+            </label>
+            <label>Título
+              <input id="calendar-event-title" type="text" placeholder="Ex: Exame médico PMAL" />
+            </label>
+            <button class="primary-btn" type="submit"><i class="fa-solid fa-plus"></i> Marcar</button>
+          </form>
+
+          <div id="calendar-detail" class="calendar-detail">
+            <strong>Selecione um dia</strong>
+            <span>Clique em uma célula do calendário para ver o resumo do dia.</span>
+          </div>
+        </section>
+
+                <section id="planejamento-semanal" class="glass-card section-block weekly-planner-section weekly-pro">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-clipboard-list"></i> Operação semanal</p>
+              <h2>Planejamento Semanal</h2>
+              <span class="section-subtitle">Importe o planejamento individual do aluno em Markdown ou JSON exportado pelo seu gerador. A visualização fica limpa, com aula, questões, revisão e metas por bloco.</span>
+            </div>
+            <div class="weekly-actions">
+              <button id="weekly-open-import" class="secondary-btn small" type="button"><i class="fa-solid fa-file-import"></i> Importar planejamento</button>
+              <button id="weekly-export-json" class="ghost-btn small" type="button"><i class="fa-solid fa-file-export"></i> Exportar JSON</button>
+              <button id="weekly-clear-plan" class="ghost-btn small danger-outline" type="button"><i class="fa-solid fa-broom"></i> Limpar semana</button>
+            </div>
+          </div>
+
+          <div class="weekly-kpis">
+            <div><span>Dias planejados</span><strong id="weekly-kpi-days">0</strong></div>
+            <div><span>Blocos</span><strong id="weekly-kpi-blocks">0</strong></div>
+            <div><span>Meta de questões</span><strong id="weekly-kpi-questions">0</strong></div>
+            <div><span>Concluído</span><strong id="weekly-kpi-done">0%</strong></div>
+          </div>
+
+          <div class="weekly-import-panel" id="weekly-import-panel" hidden>
+            <div class="weekly-import-head">
+              <div>
+                <p class="eyebrow">Importação individual</p>
+                <h3>Adicionar planejamento do aluno</h3>
+                <span>Use arquivo <b>.json</b>, <b>.md</b> ou cole o conteúdo exportado pelo seu programa. O Setor X interpreta dias, blocos, aulas, questões e metas.</span>
+              </div>
+              <button id="weekly-close-import" class="ghost-btn small" type="button"><i class="fa-solid fa-xmark"></i> Fechar</button>
+            </div>
+
+            <div class="weekly-import-grid weekly-import-grid-single">
+              <article class="weekly-import-card weekly-import-main">
+                <strong><i class="fa-solid fa-file-import"></i> Importar planejamento</strong>
+                <span class="weekly-help">Formatos aceitos: Markdown no padrão do Notion ou JSON estruturado para exportação do seu programa.</span>
+                <div class="weekly-import-buttons">
+                  <button id="weekly-select-file" class="secondary-btn" type="button"><i class="fa-solid fa-folder-open"></i> Selecionar arquivo</button>
+                  <input id="weekly-file-input" type="file" accept=".md,.markdown,.txt,.json,application/json,text/markdown,text/plain" hidden />
+                  <button id="weekly-import-markdown" class="primary-btn" type="button"><i class="fa-solid fa-check"></i> Importar conteúdo colado</button>
+                  <button id="weekly-load-template" class="ghost-btn" type="button"><i class="fa-solid fa-file-lines"></i> Ver modelo</button>
+                  <button id="weekly-load-json-model" class="ghost-btn" type="button"><i class="fa-solid fa-code"></i> Modelo JSON</button>
+                </div>
+                <textarea id="weekly-markdown-input" rows="14" placeholder="Cole aqui o Markdown ou JSON exportado pelo seu programa..."></textarea>
+              </article>
+            </div>
+          </div>
+
+          <div id="weekly-current-info" class="weekly-current-info"></div>
+          <div id="weekly-board" class="weekly-board"></div>
+        </section>
+
+<section id="alertas" class="glass-card section-block operational-alerts-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-triangle-exclamation"></i> Alertas operacionais</p>
+              <h2>O que precisa de atenção agora</h2>
+              <span class="section-subtitle">Alertas automáticos por regras internas: revisões, simulados, foco, lei seca, calendário e meta diária.</span>
+            </div>
+          </div>
+          <div id="operational-alerts" class="operational-alerts"></div>
+        </section>
+
+
+        <section id="revisoes" class="glass-card section-block revision-center-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-rotate"></i> Neurorevisão</p>
+              <h2>Central de Revisões</h2>
+              <span class="section-subtitle">Organiza questões, resumos e lei seca por ciclos de consolidação: 1, 3, 7, 15, 30 e 60 dias.</span>
+            </div>
+          </div>
+
+          <div class="revision-kpis">
+            <div><span>Questões vencidas</span><strong id="rev-q-due">0</strong></div>
+            <div><span>Resumos a revisar</span><strong id="rev-s-due">0</strong></div>
+            <div><span>Leis a revisar</span><strong id="rev-l-due">0</strong></div>
+            <div><span>Carga de hoje</span><strong id="rev-load">Leve</strong></div>
+          </div>
+
+          <div id="revision-guidance" class="revision-guidance"></div>
+
+          <div class="revision-grid">
+            <article class="revision-panel">
+              <div class="revision-panel-head">
+                <strong><i class="fa-solid fa-scale-balanced"></i> Banco QX</strong>
+                <span>Questões vencidas ou pendentes de revisão.</span>
+              </div>
+              <div id="revision-questions" class="revision-list"></div>
+            </article>
+
+            <article class="revision-panel">
+              <div class="revision-panel-head">
+                <strong><i class="fa-solid fa-book-open"></i> Resumos</strong>
+                <span>Ciclo profissional de revisão espaçada.</span>
+              </div>
+              <div id="revision-summaries" class="revision-list"></div>
+            </article>
+
+            <article class="revision-panel">
+              <div class="revision-panel-head">
+                <strong><i class="fa-solid fa-landmark"></i> Lei Seca/Juris</strong>
+                <span>Leis marcadas para revisar.</span>
+              </div>
+              <div id="revision-laws" class="revision-list"></div>
+            </article>
+          </div>
+        </section>
+
+
+        <section id="edital" class="glass-card section-block">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-file-shield"></i> Edital do concurso</p>
+              <h2>Base-mãe do Setor X</h2>
+            </div>
+          </div>
+
+          <div class="edital-grid">
+            
+            <div class="contest-target-card">
+              <div>
+                <p class="eyebrow"><i class="fa-solid fa-bullseye"></i> Concurso-alvo</p>
+                <strong>Selecione a matriz base do seu concurso</strong>
+                <span>Ao selecionar, a Matriz do Edital é atualizada automaticamente com disciplinas típicas daquele cargo.</span>
+              </div>
+              <label>Concurso
+                <select id="contest-target-select">
+                  <option value="custom">Novo personalizado / manual</option>
+                  <option value="prf">PRF — Policial Rodoviário Federal</option>
+                  <option value="pf-agente-2025">PF 2025 — Agente</option>
+                  <option value="pf-escrivao-2025">PF 2025 — Escrivão</option>
+                </select>
+              </label>
+            </div>
+
+            <form id="edital-form" class="stack-form">
+              <div class="form-grid two">
+                <label>Concurso <input id="edital-name" type="text" placeholder="Ex: PMAL Soldado 2026" /></label>
+                <label>Banca <input id="edital-board" type="text" placeholder="Ex: CEBRASPE" /></label>
+              </div>
+              <div class="form-grid three">
+                <label>Data da prova <input id="edital-date" type="date" /></label>
+                <label>Tipo dominante
+                  <select id="edital-type">
+                    <option value="Certo/Errado">Certo/Errado</option>
+                    <option value="Múltipla escolha">Múltipla escolha</option>
+                    <option value="Misto">Misto</option>
+                  </select>
+                </label>
+                <label>Peso objetiva <input id="edital-objective-weight" type="number" min="1" max="300" placeholder="Ex: 120" /></label>
+              </div>
+              <label>Observações do edital
+                <textarea id="edital-notes" rows="4" placeholder="Ex: prova Cebraspe, TAF eliminatório, redação, disciplinas de maior peso..."></textarea>
+              </label>
+              <button class="primary-btn wide" type="submit"><i class="fa-solid fa-floppy-disk"></i> Salvar dados gerais</button>
+            </form>
+
+            <div class="edital-summary-panel">
+              <div class="edital-summary" id="edital-summary"></div>
+              <form id="subject-form" class="subject-form">
+                <h3>Adicionar disciplina do edital</h3>
+                <div class="form-grid subject-add">
+                  <input id="subject-name" type="text" placeholder="Disciplina" />
+                  <input id="subject-weight" type="number" min="1" max="10" placeholder="Peso" />
+                  <input id="subject-topics" type="text" placeholder="Assuntos principais separados por vírgula" />
+                  <button class="secondary-btn" type="submit"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="subject-grid" class="subject-grid"></div>
+        </section>
+
+        <section id="meta-questoes" class="glass-card section-block">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-bullseye"></i> Meta de questões</p>
+              <h2>Meta total, progresso e ritmo diário até a prova</h2>
+            </div>
+          </div>
+
+          <div class="goal-grid">
+            <form id="question-goal-form" class="goal-card">
+              <label>Meta total até a prova
+                <input id="question-goal-input" type="text" inputmode="numeric" placeholder="Ex: 19.213" />
+              </label>
+              <button class="primary-btn wide" type="submit"><i class="fa-solid fa-check"></i> Definir meta</button>
+            </form>
+
+            <form id="manual-question-form" class="goal-card manual-question-card">
+              <label>Adicionar questões feitas fora do Banco QX
+                <input id="manual-question-input" type="text" inputmode="numeric" placeholder="Ex: 120" />
+              </label>
+              <div class="manual-question-actions">
+                <button class="primary-btn" type="submit"><i class="fa-solid fa-plus"></i> Somar</button>
+                <button id="reset-manual-questions" class="ghost-btn" type="button"><i class="fa-solid fa-rotate-left"></i> Zerar</button>
+              </div>
+              <small>Use para registrar questões feitas no Qconcursos, Caveira, Tec, PDF, simulados externos ou caderno físico.</small>
+            </form>
+
+            <div class="goal-analysis">
+              <div class="goal-big">
+                <span>Necessário por dia</span>
+                <strong id="goal-daily-needed">0</strong>
+                <small id="goal-daily-detail">Aguardando meta e data.</small>
+              </div>
+              <div class="progress-track goal-track"><div id="question-goal-progress" class="progress-fill"></div></div>
+              <div id="goal-progress-label" class="goal-progress-label">0%</div>
+              <div class="goal-mini-grid">
+                <div><span>Feitas</span><strong id="goal-done-count">0</strong></div>
+                <div><span>Banco QX</span><strong id="goal-bank-count">0</strong></div>
+                <div><span>Manual</span><strong id="goal-manual-count">0</strong></div>
+                <div><span>Faltam</span><strong id="goal-left-count">0</strong></div>
+                <div><span>Progresso</span><strong id="goal-progress-percent">0%</strong></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="questoes" class="glass-card section-block questions-section qx-section">
+          <div class="section-head qx-section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-scale-balanced"></i> Banco de Questões</p>
+              <h2>Banco QX — ambiente profissional de resolução</h2>
+              <span class="section-subtitle">Modo prova, revisão espaçada, caderno de erros e estatísticas em uma única área.</span>
+            </div>
+            <button id="open-fast-question" class="secondary-btn small" type="button"><i class="fa-solid fa-plus"></i> Nova questão</button>
+          </div>
+
+          <div class="qx-brand-strip">
+            <img src="assets/images/setorx-logo-horizontal.png" alt="Setor X Central Tática de Estudos" />
+            <div>
+              <strong>Banco QX Operacional</strong>
+              <span>Resolução em modo prova, comentários bloqueados e revisão espaçada.</span>
+            </div>
+          </div>
+
+          <div class="qx-top-menu" role="tablist" aria-label="Menu do Banco QX">
+            <button class="qx-menu-btn active" type="button" data-qx-view="questions"><i class="fa-solid fa-list-check"></i> Questões</button>
+            <button class="qx-menu-btn" type="button" data-qx-view="index"><i class="fa-solid fa-layer-group"></i> Índice</button>
+            <button class="qx-menu-btn" type="button" data-qx-view="stats"><i class="fa-solid fa-chart-line"></i> Estatísticas</button>
+            <button class="qx-menu-btn" type="button" data-qx-view="answerkey"><i class="fa-solid fa-key"></i> Gabarito</button>
+          </div>
+
+          <div class="questions-dashboard qx-dashboard" id="qx-stats-panel">
+            <div class="questions-kpis qx-kpis">
+              <div><span>Cadastradas</span><strong id="questions-total">0</strong></div>
+              <div><span>Respondidas</span><strong id="questions-answered-total">0</strong></div>
+              <div><span>Acertos</span><strong id="questions-correct-total">0</strong></div>
+              <div><span>Erros</span><strong id="questions-wrong-total">0</strong></div>
+              <div><span>Aproveitamento</span><strong id="questions-accuracy">0%</strong></div>
+              <div><span>Revisões vencidas</span><strong id="questions-revisions-due">0</strong></div>
+              <div><span>Favoritas</span><strong id="questions-favorites-total">0</strong></div>
+              <div><span>Maior erro</span><strong id="questions-worst-subject">--</strong></div>
+            </div>
+
+            <div class="question-filters qx-filters" id="qx-index-panel">
+              <input id="question-search" type="search" placeholder="Buscar no enunciado, apoio, comentário, tags ou fonte..." />
+              <select id="question-filter-subject"></select>
+              <select id="question-filter-topic"><option value="all">Todos os assuntos</option></select>
+              <select id="question-filter-board"><option value="all">Todas as bancas</option></select>
+              <select id="question-filter-type">
+                <option value="all">Todos os tipos</option>
+                <option value="Certo/Errado">Certo/Errado</option>
+                <option value="Múltipla escolha">Múltipla escolha</option>
+              </select>
+              <select id="question-filter-status">
+                <option value="all">Todos os status</option>
+                <option value="pending">Pendentes</option>
+                <option value="correct">Acertei</option>
+                <option value="wrong">Errei</option>
+              </select>
+              <select id="question-filter-due">
+                <option value="all">Todas as revisões</option>
+                <option value="due">Revisar hoje/vencidas</option>
+                <option value="today">Revisão hoje</option>
+                <option value="future">Revisão futura</option>
+              </select>
+              <select id="question-filter-mode">
+                <option value="all">Todos os cadernos</option>
+                <option value="wrong">Somente erros</option>
+                <option value="favorite">Favoritas</option>
+                <option value="unanswered">Não respondidas</option>
+                <option value="answered">Respondidas</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="qx-workbench" class="qx-workbench">
+            <aside class="question-list-panel qx-list-panel">
+              <div class="question-list-head">
+                <div>
+                  <strong>Índice de questões</strong>
+                  <small id="qx-filter-summary">Filtros ativos: todos</small>
+                </div>
+                <span id="question-list-count">0 itens</span>
+              </div>
+              <div class="qx-list-actions">
+                <button id="qx-filter-errors" class="ghost-btn small" type="button"><i class="fa-solid fa-triangle-exclamation"></i> Somente erros</button>
+                <button id="qx-filter-due" class="ghost-btn small" type="button"><i class="fa-solid fa-clock"></i> Revisar hoje</button>
+                <button id="qx-clear-filters" class="ghost-btn small" type="button"><i class="fa-solid fa-broom"></i> Limpar</button>
+              </div>
+              <div id="question-list" class="question-list qx-question-list"></div>
+            </aside>
+
+            <article class="practice-panel qx-practice-panel">
+              <div id="practice-empty" class="practice-empty qx-empty">
+                <div class="qx-empty-badge qx-empty-image"><img src="assets/images/setorx-emblema.png" alt="Emblema Setor X" /></div>
+                <strong>Banco QX pronto para operação</strong>
+                <span id="practice-empty-message">Selecione uma questão no índice lateral ou use “Nova questão” no topo. Gabarito, comentários e estatísticas só aparecem após a resposta.</span>
+                <div class="qx-empty-actions">
+                  <button id="show-all-questions" class="ghost-btn small" type="button"><i class="fa-solid fa-list"></i> Todas</button>
+                  <button id="show-unanswered-questions" class="secondary-btn small" type="button"><i class="fa-solid fa-lock"></i> Pendentes</button>
+                  <button id="show-wrong-questions" class="danger-btn small" type="button"><i class="fa-solid fa-triangle-exclamation"></i> Erros</button>
+                  <button id="show-due-questions" class="primary-btn small" type="button"><i class="fa-solid fa-rotate"></i> Revisar hoje</button>
+                </div>
+                <div class="qx-empty-steps">
+                  <small><i class="fa-solid fa-list-check"></i> Índice filtrável</small>
+                  <small><i class="fa-solid fa-lock"></i> Modo prova bloqueado</small>
+                  <small><i class="fa-solid fa-rotate"></i> Revisão espaçada</small>
+                </div>
+              </div>
+
+              <div id="practice-card" class="practice-card qx-practice-card" hidden>
+                <div class="qx-question-top">
+                  <div class="qx-question-counter">
+                    <span id="qx-top-counter">Questão 0 de 0</span>
+                    <strong id="practice-topic">Assunto</strong>
+                    <small id="practice-source">Fonte não informada</small>
+                  </div>
+                  <div id="practice-tags" class="question-tags qx-tags"></div>
+                </div>
+
+                <div class="qx-question-toolbar">
+                  <button id="back-to-question-list" class="ghost-btn small" type="button"><i class="fa-solid fa-list"></i> Lista</button>
+                  <button id="prev-question" class="ghost-btn small" type="button"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+                  <button id="next-question" class="ghost-btn small" type="button">Próxima <i class="fa-solid fa-chevron-right"></i></button>
+                  <button id="shuffle-questions" class="ghost-btn small" type="button"><i class="fa-solid fa-shuffle"></i> Embaralhar</button>
+                  <button id="open-focus-mode" class="primary-btn small qx-focus-btn" type="button"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Modo foco</button>
+                  <button id="favorite-active-question" class="ghost-btn small" type="button"><i class="fa-regular fa-star"></i> Favoritar</button>
+                  <button id="edit-active-question" class="ghost-btn small" type="button"><i class="fa-solid fa-pen"></i> Editar</button>
+                  <button id="delete-active-question" class="danger-btn small" type="button"><i class="fa-solid fa-trash"></i> Excluir</button>
+                </div>
+
+                <div id="practice-support" class="qx-support" hidden></div>
+                <p id="practice-statement" class="practice-statement qx-statement"></p>
+                <div id="answer-area" class="answer-area qx-answer-area"></div>
+
+                <div class="practice-actions qx-answer-actions">
+                  <button id="submit-answer" class="primary-btn" type="button"><i class="fa-solid fa-check"></i> Responder questão</button>
+                  <span id="qx-answer-hint">Selecione uma alternativa para responder.</span>
+                </div>
+
+                <div id="answer-feedback" class="answer-feedback" hidden></div>
+
+                <div id="comment-lock" class="comment-lock qx-comment-lock">
+                  <i class="fa-solid fa-lock"></i>
+                  <strong>Área bloqueada</strong>
+                  <span>Responda a questão para liberar comentário, gabarito, estatísticas e revisão.</span>
+                </div>
+
+                <div class="comment-tabs qx-tabs" hidden>
+                  <button class="tab-btn active" data-tab="professor" type="button">Comentário do Professor</button>
+                  <button class="tab-btn" data-tab="personal" type="button">Meu Comentário</button>
+                  <button class="tab-btn" data-tab="stats" type="button">Estatísticas</button>
+                  <button class="tab-btn" data-tab="review" type="button">Revisão</button>
+                </div>
+
+                <div id="tab-professor" class="tab-panel active"></div>
+                <div id="tab-personal" class="tab-panel"></div>
+                <div id="tab-stats" class="tab-panel"></div>
+                <div id="tab-review" class="tab-panel"></div>
+              </div>
+            </article>
+          </div>
+
+          <div id="qx-answerkey-panel" class="qx-answerkey-panel"></div>
+          <div id="question-subject-stats" class="qx-subject-stats"></div>
+
+          <form id="question-form" class="question-editor qx-editor" hidden>
+            <div class="qx-editor-head">
+              <div>
+                <p class="eyebrow">Cadastro operacional</p>
+                <h3 id="question-editor-title">Nova questão</h3>
+              </div>
+              <button id="close-question-form" class="ghost-btn small" type="button"><i class="fa-solid fa-xmark"></i> Fechar</button>
+            </div>
+
+            <div id="duplicate-warning" class="duplicate-warning" hidden></div>
+
+            <div class="question-form-grid">
+              <label>Disciplina <select id="question-subject"></select></label>
+              <label>Assunto <input id="question-topic" type="text" placeholder="Ex: Art. 5º / Crase / CTB" /></label>
+              <label>Banca <input id="question-board" type="text" placeholder="Ex: CEBRASPE" /></label>
+              <label>Tipo
+                <select id="question-type">
+                  <option value="Certo/Errado">Certo/Errado</option>
+                  <option value="Múltipla escolha">Múltipla escolha</option>
+                </select>
+              </label>
+            </div>
+
+            <label>Conteúdo de apoio opcional
+              <textarea id="question-support" rows="4" placeholder="Texto de apoio, caso concreto, excerto legal ou comando comum da banca."></textarea>
+            </label>
+
+            <label>Enunciado
+              <textarea id="question-statement" rows="6" placeholder="Cole o enunciado da questão"></textarea>
+            </label>
+
+            <div id="alternatives-box" class="alternatives-box qx-alternatives-editor"></div>
+
+            <div class="question-form-grid compact">
+              <label>Gabarito <input id="question-answer" type="text" placeholder="Certo, Errado ou A/B/C/D/E" /></label>
+              <label>Fonte <input id="question-source" type="text" placeholder="Ex: CEBRASPE/PMAL/2026" /></label>
+              <label>Tags <input id="question-tags-input" type="text" placeholder="Ex: literalidade, art. 5º, pegadinha" /></label>
+            </div>
+
+            <label>Comentário do professor
+              <textarea id="question-comment" rows="5" placeholder="Fundamento, artigo, inciso, jurisprudência, pegadinha e bizu."></textarea>
+            </label>
+
+            <label>Meu comentário / anotação pessoal
+              <textarea id="question-personal-comment" rows="4" placeholder="Seu resumo, erro recorrente, mnemônico ou alerta pessoal."></textarea>
+            </label>
+
+            <div class="question-editor-actions">
+              <button class="primary-btn" type="submit"><i class="fa-solid fa-floppy-disk"></i> Salvar questão</button>
+              <button id="clear-question-form" class="ghost-btn" type="button"><i class="fa-solid fa-eraser"></i> Limpar</button>
+            </div>
+          </form>
+        </section>
+
+
+        <section id="resumos" class="glass-card section-block summaries-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-book-open"></i> Resumos pessoais</p>
+              <h2>Editor de resumos Setor X</h2>
+              <span class="section-subtitle">Crie resumos no estilo Word: títulos, cores, negrito, listas e marcações para revisão.</span>
+            </div>
+            <div class="summary-head-actions">
+              <button id="summary-new" class="secondary-btn small" type="button"><i class="fa-solid fa-plus"></i> Novo resumo</button>
+              <button id="summary-close" class="ghost-btn small" type="button"><i class="fa-solid fa-xmark"></i> Fechar resumo</button>
+            </div>
+          </div>
+
+          <div id="summary-current-info" class="summary-current-info summary-current-info-solo">
+              <strong>Nenhum resumo aberto</strong>
+              <span>Abra ou crie um resumo. O editor abre em janela própria para manter a plataforma organizada.</span>
+            </div>
+
+          <div class="summary-workspace">
+            <aside class="summary-sidebar">
+              <input id="summary-search" type="search" placeholder="Buscar resumo, disciplina ou conteúdo..." />
+              <div id="summary-list" class="summary-list"></div>
+            </aside>
+
+            <div id="summary-modal-backdrop" class="summary-modal-backdrop" hidden></div>
+
+            <article id="summary-editor-card" class="summary-editor-card summary-closed" hidden>
+              <input id="summary-id" type="hidden" />
+              <div class="summary-modal-topline">
+                <div>
+                  <p class="eyebrow"><i class="fa-solid fa-book-open"></i> Editor de resumo</p>
+                  <h3 id="summary-modal-title">Resumo operacional</h3>
+                </div>
+                <button id="summary-modal-close" class="ghost-btn small" type="button"><i class="fa-solid fa-xmark"></i> Fechar janela</button>
+                <button id="summary-floating-close" class="summary-floating-close" type="button" title="Fechar resumo"><i class="fa-solid fa-xmark"></i></button>
+              </div>
+
+              <div class="summary-meta-grid">
+                <input id="summary-linked-questions" type="hidden" value="[]" />
+                <input id="summary-videos-data" type="hidden" value="[]" />
+                <label>Título do resumo
+                  <input id="summary-title" type="text" placeholder="Ex: Controle de Constitucionalidade" />
+                </label>
+                <label>Disciplina/tema
+                  <input id="summary-subject" type="text" placeholder="Ex: Direito Constitucional" />
+                </label>
+              </div>
+
+              <div class="summary-integration-grid">
+                <div class="summary-link-panel">
+                  <strong><i class="fa-solid fa-link"></i> Vincular a erros do Banco QX</strong>
+                  <div class="summary-link-row">
+                    <select id="summary-question-select"></select>
+                    <button id="summary-add-question-link" class="secondary-btn small" type="button"><i class="fa-solid fa-plus"></i> Vincular</button>
+                  </div>
+                  <div id="summary-linked-list" class="summary-linked-list"></div>
+                </div>
+
+                <div class="summary-video-panel">
+                  <strong><i class="fa-solid fa-video"></i> Vídeos e aulas vinculadas</strong>
+                  <div class="summary-link-row">
+                    <input id="summary-video-url" type="url" placeholder="Cole link do YouTube ou aula..." />
+                    <button id="summary-add-video" class="secondary-btn small" type="button"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                  </div>
+                  <div id="summary-video-list" class="summary-video-list"></div>
+                </div>
+              </div>
+
+              <div class="summary-review-panel" hidden>
+                <strong><i class="fa-solid fa-rotate"></i> Revisão do resumo</strong>
+                <div id="summary-review-status" class="summary-review-status">Salve o resumo para ativar o ciclo de revisão.</div>
+                <div class="summary-review-actions">
+                  <button class="danger-btn small" type="button" data-summary-current-rate="hard">Difícil</button>
+                  <button class="secondary-btn small" type="button" data-summary-current-rate="good">Bom</button>
+                  <button class="primary-btn small" type="button" data-summary-current-rate="easy">Fácil</button>
+                </div>
+              </div>
+
+              <div class="summary-toolbar" aria-label="Ferramentas do editor">
+                <button class="ghost-btn small" type="button" data-cmd="bold"><b>B</b></button>
+                <button class="ghost-btn small" type="button" data-cmd="italic"><i>I</i></button>
+                <button class="ghost-btn small" type="button" data-cmd="underline"><u>U</u></button>
+                <button class="ghost-btn small" type="button" data-cmd="insertUnorderedList"><i class="fa-solid fa-list-ul"></i></button>
+                <button class="ghost-btn small" type="button" data-cmd="insertOrderedList"><i class="fa-solid fa-list-ol"></i></button>
+                <span class="summary-toolbar-sep"></span>
+                <button class="ghost-btn small" type="button" data-format="h2">Título</button>
+                <button class="ghost-btn small" type="button" data-format="h3">Subtítulo</button>
+                <button class="ghost-btn small" type="button" data-format="p">Texto</button>
+                <button id="summary-organize" class="secondary-btn small" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Organização PRO</button>
+                <button id="summary-normalize-font" class="ghost-btn small" type="button"><i class="fa-solid fa-font"></i> Arial</button>
+                <span class="summary-toolbar-sep"></span>
+                <button class="summary-color" type="button" data-color="#f8fafc" style="--c:#f8fafc"></button>
+                <button class="summary-color" type="button" data-color="#ffcf66" style="--c:#ffcf66"></button>
+                <button class="summary-color" type="button" data-color="#7dd3fc" style="--c:#7dd3fc"></button>
+                <button class="summary-color" type="button" data-color="#86efac" style="--c:#86efac"></button>
+                <button class="summary-color" type="button" data-color="#fca5a5" style="--c:#fca5a5"></button>
+                <button class="summary-color" type="button" data-color="#c4b5fd" style="--c:#c4b5fd"></button>
+                <span class="summary-toolbar-sep"></span>
+                <button class="summary-marker" type="button" data-bg="#fff3a3" style="--c:#fff3a3" title="Marca-texto amarelo"></button>
+                <button class="summary-marker" type="button" data-bg="#bbf7d0" style="--c:#bbf7d0" title="Marca-texto verde"></button>
+                <button class="summary-marker" type="button" data-bg="#bae6fd" style="--c:#bae6fd" title="Marca-texto azul"></button>
+                <button class="summary-marker" type="button" data-bg="#fecaca" style="--c:#fecaca" title="Marca-texto vermelho"></button>
+                <button class="summary-marker" type="button" data-bg="#ddd6fe" style="--c:#ddd6fe" title="Marca-texto roxo"></button>
+              </div>
+
+              <div class="summary-editor-shell">
+                <aside class="summary-toc-panel">
+                  <div class="summary-toc-head">
+                    <strong>Sumário</strong>
+                    <small>Gerado pelos títulos do resumo</small>
+                    <select id="summary-toc-mode" class="summary-toc-mode">
+                      <option value="all">Títulos e subtítulos</option>
+                      <option value="titles">Apenas títulos</option>
+                    </select>
+                  </div>
+                  <div id="summary-toc-list" class="summary-toc-list">
+                    <span>Use “Título” ou “Subtítulo” para criar o sumário.</span>
+                  </div>
+                </aside>
+
+                <div id="summary-editor" class="summary-editor" contenteditable="true" spellcheck="true">
+                  <h2>Digite seu resumo aqui</h2>
+                  <p>Use cores, listas, negrito e marcações para organizar sua revisão.</p>
+                </div>
+              </div>
+
+              <div class="summary-actions">
+                <button id="summary-save" class="primary-btn" type="button"><i class="fa-solid fa-floppy-disk"></i> Salvar resumo</button>
+                <button id="summary-export-note" class="ghost-btn" type="button" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimir / PDF</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+
+        <section id="prompts-ia" class="glass-card section-block prompts-ia-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-terminal"></i> Arsenal de Prompts</p>
+              <h2>Prompts IA para Concursos</h2>
+              <span class="section-subtitle">Biblioteca offline de comandos prontos para ChatGPT/Gemini/Claude. Sem API, sem servidor e sem dependência externa.</span>
+            </div>
+          </div>
+
+          <div class="prompt-command-panel">
+            <div class="prompt-search-box">
+              <label>Buscar prompt
+                <input id="prompt-search" type="search" placeholder="Ex: redação Cebraspe, questão, lei seca, recurso..." />
+              </label>
+            </div>
+            <div class="prompt-filter-row">
+              <button class="prompt-filter active" data-prompt-filter="all" type="button">Todos</button>
+              <button class="prompt-filter" data-prompt-filter="questoes" type="button">Questões</button>
+              <button class="prompt-filter" data-prompt-filter="redacao" type="button">Redação</button>
+              <button class="prompt-filter" data-prompt-filter="comentarios" type="button">Comentários</button>
+              <button class="prompt-filter" data-prompt-filter="lei-seca" type="button">Lei Seca</button>
+              <button class="prompt-filter" data-prompt-filter="resumos" type="button">Resumos</button>
+              <button class="prompt-filter" data-prompt-filter="revisao" type="button">Revisão</button>
+            </div>
+          </div>
+
+          <div class="prompt-builder">
+            <div>
+              <p class="eyebrow">Gerador rápido</p>
+              <h3>Monte um prompt base com seu contexto</h3>
+              <span>Preencha os campos e gere um comando pronto para copiar.</span>
+            </div>
+            <div class="prompt-builder-grid">
+              <label>Concurso
+                <input id="prompt-build-contest" type="text" placeholder="Ex: PRF, PF Agente, PMAL..." />
+              </label>
+              <label>Banca
+                <input id="prompt-build-board" type="text" placeholder="Ex: CEBRASPE, FGV, VUNESP..." />
+              </label>
+              <label>Disciplina
+                <input id="prompt-build-subject" type="text" placeholder="Ex: Direito Constitucional" />
+              </label>
+              <label>Objetivo
+                <select id="prompt-build-goal">
+                  <option value="questoes">Criar questões</option>
+                  <option value="comentario">Comentar questão</option>
+                  <option value="redacao">Corrigir redação</option>
+                  <option value="resumo">Gerar resumo bizurado</option>
+                  <option value="lei">Explicar lei seca</option>
+                  <option value="revisao">Montar revisão</option>
+                </select>
+              </label>
+            </div>
+            <div class="prompt-builder-actions">
+              <button id="generate-context-prompt" class="primary-btn" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Gerar prompt</button>
+              <button id="copy-context-prompt" class="secondary-btn" type="button"><i class="fa-solid fa-copy"></i> Copiar gerado</button>
+            </div>
+            <textarea id="context-prompt-output" rows="8" placeholder="O prompt gerado aparecerá aqui."></textarea>
+          </div>
+
+          <div id="prompt-library" class="prompt-library"></div>
+        </section>
+
+        <section id="simulados" class="glass-card section-block">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-file-circle-check"></i> Simulados</p>
+              <h2>Desempenho automatizado por disciplina</h2>
+            </div>
+          </div>
+
+          <div class="simulation-grid">
+            <form id="simulation-form" class="simulation-form">
+              <div class="form-grid three">
+                <label>Nome do simulado <input id="simulation-name" type="text" placeholder="Ex: Simulado 01 - PMAL" /></label>
+                <label>Data <input id="simulation-date" type="date" /></label>
+                <label>Tipo
+                  <select id="simulation-type">
+                    <option value="Múltipla escolha">Múltipla escolha</option>
+                    <option value="Certo/Errado">Certo/Errado</option>
+                  </select>
+                </label>
+              </div>
+              <div class="simulation-hint" id="simulation-hint">No modo Certo/Errado: pontuação final = certas - erradas.</div>
+              <div id="simulation-subject-inputs" class="simulation-subject-inputs"></div>
+              <button class="primary-btn wide" type="submit"><i class="fa-solid fa-calculator"></i> Salvar e calcular</button>
+            </form>
+
+            <div class="simulation-result-card">
+              <span>Resultado do último simulado</span>
+              <strong id="last-simulation-score">--</strong>
+              <small id="last-simulation-detail">Nenhum simulado cadastrado.</small>
+              <div id="simulation-summary-kpis" class="simulation-summary-kpis"></div>
+            </div>
+          </div>
+
+          <div id="simulation-breakdown" class="simulation-breakdown"></div>
+          <div id="simulation-history" class="compact-list"></div>
+
+          <div class="simulation-comparator-card">
+            <div class="section-head compact-head">
+              <div>
+                <p class="eyebrow"><i class="fa-solid fa-code-compare"></i> Comparador de simulados</p>
+                <h3>Últimos resultados lado a lado</h3>
+              </div>
+            </div>
+            <div id="simulation-comparator" class="simulation-comparator"></div>
+          </div>
+        </section>
+
+        <section id="pomodoro" class="module-grid focus-only">
+          <article class="timer-card glass-card">
+            <div class="section-head centered">
+              <p class="eyebrow"><i class="fa-solid fa-stopwatch"></i> Foco tático</p>
+              <h2 id="timer-mode">Foco tático</h2>
+            </div>
+
+            <div class="timer-ring" aria-live="polite">
+              <svg viewBox="0 0 220 220"><circle cx="110" cy="110" r="96" class="ring-bg"></circle><circle cx="110" cy="110" r="96" class="ring-progress" id="timer-ring"></circle></svg>
+              <div class="timer-time" id="timer-display">50:00</div>
+            </div>
+
+            <div class="timer-controls">
+              <button id="timer-start" class="primary-btn" type="button"><i class="fa-solid fa-play"></i> Iniciar</button>
+              <button id="timer-pause" class="secondary-btn" type="button"><i class="fa-solid fa-pause"></i> Pausar</button>
+              <button id="timer-reset" class="danger-btn" type="button"><i class="fa-solid fa-rotate-left"></i> Resetar</button>
+              <button id="timer-complete" class="ghost-btn" type="button"><i class="fa-solid fa-flag-checkered"></i> Concluir bloco</button>
+            </div>
+
+            <div class="timer-alarm-note">
+              <i class="fa-solid fa-bell"></i>
+              <span>Timer por relógio real: se a tela travar ou você mudar de aba, o tempo é recalculado ao voltar. Alarme toca ao iniciar e ao finalizar.</span>
+            </div>
+
+            <div class="focus-forecast">
+              <div><span>Tempo líquido estudado hoje</span><strong id="focus-minutes-today">00h 00m</strong></div>
+              <div><span>Previsão término meta líquida</span><strong id="focus-end-forecast">--:--</strong></div>
+              <div><span>Questões necessárias hoje</span><strong id="daily-needed-auto">0</strong></div>
+              <div><span>Questões restantes hoje</span><strong id="questions-left-today">0</strong></div>
+            </div>
+
+            <div class="config-grid">
+              <label>Foco <input id="focus-minutes" type="number" min="5" max="120" /></label>
+              <label>Pausa <input id="break-minutes" type="number" min="1" max="60" /></label>
+              <label>Meta líquida <input id="daily-hours" type="number" min="0.5" max="14" step="0.5" /></label>
+              <label>Meta questões/dia <input id="daily-question-goal" type="number" min="0" max="5000" step="1" readonly title="Calculada automaticamente pela Meta Operacional" /></label>
+            </div>
+            <button id="save-settings" class="wide secondary-btn" type="button"><i class="fa-solid fa-floppy-disk"></i> Salvar configuração</button>
+
+            <div class="focus-music-panel">
+              <div class="section-head compact-head">
+                <div>
+                  <p class="eyebrow"><i class="fa-solid fa-headphones"></i> Músicas de foco</p>
+                  <h3>Ambiente sonoro para estudo</h3>
+                </div>
+              </div>
+
+              <div class="music-grid">
+                <a class="music-card" href="https://www.youtube.com/results?search_query=lofi+study+music" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-music"></i>
+                  <strong>Lo-fi Study</strong>
+                  <span>Batida leve para leitura, revisão e questões.</span>
+                </a>
+                <a class="music-card" href="https://www.youtube.com/results?search_query=brown+noise+study+focus" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-wave-square"></i>
+                  <strong>Brown Noise</strong>
+                  <span>Ruído grave para bloquear distrações.</span>
+                </a>
+                <a class="music-card" href="https://www.youtube.com/results?search_query=deep+focus+music+no+lyrics" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-brain"></i>
+                  <strong>Deep Focus</strong>
+                  <span>Música sem letra para blocos longos.</span>
+                </a>
+                <a class="music-card" href="https://www.youtube.com/results?search_query=rain+sounds+study+focus" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-cloud-rain"></i>
+                  <strong>Chuva e ambiente</strong>
+                  <span>Sons constantes para estudo noturno.</span>
+                </a>
+              </div>
+
+              <div class="local-music-box">
+                <label>Usar músicas do seu computador/celular
+                  <input id="local-music-files" type="file" accept="audio/*" multiple />
+                </label>
+                <audio id="focus-audio-player" controls></audio>
+                <div id="local-music-list" class="local-music-list">
+                  <span>Nenhuma música local selecionada.</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section id="taf" class="glass-card section-block">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-person-running"></i> Preparação física</p>
+              <h2>TAF, IMC, peso ideal automático e força relativa</h2>
+            </div>
+          </div>
+
+          <div class="taf-grid">
+            <form id="taf-form" class="taf-form">
+              <label>Altura (cm) <input id="taf-height" type="number" min="120" max="230" placeholder="Ex: 178" /></label>
+              <label>Idade <input id="taf-age" type="number" min="16" max="65" placeholder="Ex: 23" /></label>
+              <label>Peso diário (kg) <input id="taf-weight" type="number" min="35" max="220" step="0.1" placeholder="Ex: 95.0" /></label>
+              <label>Corrida 12 min (m) <input id="taf-run" type="number" min="0" placeholder="Ex: 2400" /></label>
+              <label>Barra fixa <input id="taf-pullups" type="number" min="0" placeholder="Ex: 5" /></label>
+              <label>Flexões <input id="taf-pushups" type="number" min="0" placeholder="Ex: 35" /></label>
+              <label>Abdominais <input id="taf-situps" type="number" min="0" placeholder="Ex: 42" /></label>
+              <button class="primary-btn" type="submit"><i class="fa-solid fa-plus"></i> Registrar físico</button>
+            </form>
+
+            <div class="bmi-card taf-pro-card">
+              <div class="bmi-main">
+                <span>Peso atual / IMC técnico</span>
+                <strong id="bmi-value">--</strong>
+                <small id="bmi-class">Informe altura e peso.</small>
+              </div>
+              <div class="bmi-scale"><span>18,5</span><span>25</span><span>30</span><span>35</span></div>
+              <div class="bmi-track"><div id="bmi-marker"></div></div>
+
+              <div class="taf-health-grid">
+                <div><span>Peso ideal por IMC</span><strong id="taf-ideal-range">--</strong></div>
+                <div><span>Peso-alvo operacional</span><strong id="taf-target-weight">--</strong></div>
+                <div><span>Diferença atual</span><strong id="taf-weight-diff">--</strong></div>
+                <div><span>Força relativa</span><strong id="taf-relative-strength">--</strong></div>
+              </div>
+
+              <div class="physical-analysis" id="physical-analysis"></div>
+              <div class="metric-grid">
+                <div><span>Corrida PR</span><strong id="pr-run">0 m</strong></div>
+                <div><span>Barra PR</span><strong id="pr-pullups">0</strong></div>
+                <div><span>Flexões PR</span><strong id="pr-pushups">0</strong></div>
+                <div><span>Abdômen PR</span><strong id="pr-situps">0</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="taf-ops-grid">
+            <form id="taf-exercise-form" class="taf-mini-form">
+              <h3>Exercícios exigidos no TAF</h3>
+              <div class="form-grid four">
+                <label>Exercício <input id="taf-ex-name" type="text" placeholder="Ex: Corrida 12 min" /></label>
+                <label>Índice/meta <input id="taf-ex-target" type="number" min="0" step="0.1" placeholder="Ex: 2400" /></label>
+                <label>Unidade <input id="taf-ex-unit" type="text" placeholder="m, rep, min" /></label>
+                <label>Tipo
+                  <select id="taf-ex-mode">
+                    <option value="higher">Maior é melhor</option>
+                    <option value="lower">Menor é melhor</option>
+                  </select>
+                </label>
+              </div>
+              <button class="secondary-btn wide" type="submit"><i class="fa-solid fa-plus"></i> Adicionar exercício padrão</button>
+            </form>
+
+            <form id="taf-performance-form" class="taf-mini-form">
+              <h3>Registro de marca</h3>
+              <div class="form-grid three">
+                <label>Exercício <select id="taf-log-exercise"></select></label>
+                <label>Marca realizada <input id="taf-log-value" type="number" min="0" step="0.1" placeholder="Ex: 2450" /></label>
+                <label>Observação <input id="taf-log-note" type="text" placeholder="Ex: pós-musculação" /></label>
+              </div>
+              <button class="primary-btn wide" type="submit"><i class="fa-solid fa-flag-checkered"></i> Registrar marca</button>
+            </form>
+          </div>
+
+          <div id="taf-exercise-grid" class="taf-exercise-grid"></div>
+          <div id="taf-history" class="compact-list"></div>
+        </section>
+
+        <section id="leis" class="glass-card section-block">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-landmark"></i> Lei Seca e Jurisprudência</p>
+              <h2>Atalhos de consulta rápida — área policial e Delegado</h2>
+            </div>
+          </div>
+          <div class="law-toolbar">
+            <input id="law-search" type="search" placeholder="Buscar lei, código, tema, STF, STJ..." />
+            <select id="law-filter">
+              <option value="all">Todos</option>
+              <option value="constitucional">Constitucional</option>
+              <option value="penal">Penal / Processo Penal</option>
+              <option value="administrativo">Administrativo</option>
+              <option value="especial">Legislação Especial</option>
+              <option value="transito">Trânsito</option>
+              <option value="jurisprudencia">Jurisprudência</option>
+              <option value="marked">Marcadas</option>
+              <option value="read">Lidas</option>
+              <option value="important">Importantes</option>
+              <option value="review">Revisar</option>
+            </select>
+          </div>
+          <div id="law-mark-summary" class="law-mark-summary"></div>
+          <div id="law-grid" class="law-grid"></div>
+        </section>
+
+
+        <section id="cursos" class="glass-card section-block courses-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-graduation-cap"></i> Cursos e plataformas</p>
+              <h2>Central de acesso rápido</h2>
+              <span class="section-subtitle">Atalhos externos para plataformas, cursos, questões, editais e materiais.</span>
+            </div>
+            <button id="open-guide-modal" class="secondary-btn small" type="button"><i class="fa-solid fa-plus"></i> Adicionar guia</button>
+          </div>
+
+          <div id="courses-grid" class="courses-grid"></div>
+
+          <div id="guide-modal-root" class="guide-modal-root" hidden>
+            <div id="guide-modal-backdrop" class="guide-modal-backdrop"></div>
+            <form id="guide-form" class="guide-modal-box">
+              <div class="guide-modal-head">
+                <div>
+                  <p class="eyebrow"><i class="fa-solid fa-compass"></i> Guia externo</p>
+                  <h3 id="guide-modal-title">Adicionar guia</h3>
+                </div>
+                <button id="guide-modal-close" class="ghost-btn small" type="button"><i class="fa-solid fa-xmark"></i> Fechar</button>
+              </div>
+              <input id="guide-id" type="hidden" />
+              <div class="form-grid two">
+                <label>Nome do guia <input id="guide-title" type="text" placeholder="Ex: Curso de CTB" /></label>
+                <label>URL <input id="guide-url" type="url" placeholder="https://..." /></label>
+                <label>Categoria
+                  <select id="guide-category">
+                    <option value="curso">Curso</option>
+                    <option value="questoes">Questões</option>
+                    <option value="drive">Material/Pasta</option>
+                    <option value="noticias">Editais/notícias</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                </label>
+                <label>Ícone
+                  <select id="guide-icon">
+                    <option value="fa-graduation-cap">Curso</option>
+                    <option value="fa-circle-question">Questões</option>
+                    <option value="fa-folder-open">Pasta/material</option>
+                    <option value="fa-newspaper">Notícias</option>
+                    <option value="fa-link">Link</option>
+                    <option value="fa-skull">Caveira</option>
+                  </select>
+                </label>
+              </div>
+              <label>Descrição
+                <textarea id="guide-description" rows="3" placeholder="Descreva para que serve esse guia."></textarea>
+              </label>
+              <div class="guide-modal-actions">
+                <button class="primary-btn" type="submit"><i class="fa-solid fa-floppy-disk"></i> Salvar guia</button>
+                <button id="guide-clear" class="ghost-btn" type="button"><i class="fa-solid fa-eraser"></i> Limpar</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section id="patentes" class="glass-card section-block">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-ranking-star"></i> Gamificação</p>
+              <h2>Sistema de Patentes Setor X</h2>
+            </div>
+          </div>
+          <div class="rank-panel">
+            <div class="rank-current">
+              <div id="rank-emblem" class="rank-emblem"></div>
+              <div>
+                <span>Patente atual</span>
+                <strong id="rank-title">Recruta</strong>
+                <p id="rank-description">Todo operador começa no campo de treinamento.</p>
+              </div>
+            </div>
+            <div class="rank-progress">
+              <div class="rank-progress-head"><span id="rank-next">Próxima patente</span><strong id="rank-xp">0 XP</strong></div>
+              <div class="progress-track"><div id="rank-progress-bar" class="progress-fill"></div></div>
+            </div>
+          </div>
+          <div class="medals-section">
+            <div class="section-head compact-head">
+              <div>
+                <p class="eyebrow"><i class="fa-solid fa-medal"></i> Medalhas e missões difíceis</p>
+                <h3>Conquistas operacionais</h3>
+              </div>
+            </div>
+            <div id="medals-grid" class="medals-grid"></div>
+          </div>
+          <div id="rank-ladder" class="rank-ladder"></div>
+        </section>
+
+        
+        <section id="vade-mecum" class="glass-card section-block vade-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-book-open-reader"></i> Vade Mecum</p>
+              <h2>Lei seca por disciplina</h2>
+              <span class="section-subtitle">Base de leis, artigos, grifos, comentários e revisão.</span>
+            </div>
+            <div class="vade-head-actions">
+              <button id="vade-open-import" class="secondary-btn small" type="button"><i class="fa-solid fa-file-import"></i> Importar lei</button>
+              <button id="vade-export-laws" class="ghost-btn small" type="button"><i class="fa-solid fa-file-export"></i> Exportar</button>
+            </div>
+          </div>
+          <div class="vade-dashboard">
+            <article><span>Leis</span><strong id="vade-kpi-laws">0</strong><small>base ativa</small></article>
+            <article><span>Artigos</span><strong id="vade-kpi-articles">0</strong><small>catalogados</small></article>
+            <article><span>Grifos</span><strong id="vade-kpi-highlights">0</strong><small>marcações</small></article>
+            <article><span>Revisar</span><strong id="vade-kpi-review">0</strong><small>pendências</small></article>
+          </div>
+          <div class="vade-laws-launcher"><span>Filtros</span><input id="vade-law-search" type="search" placeholder="Buscar lei/disciplina..." /><button id="vade-refresh" class="ghost-btn small" type="button">Atualizar</button></div>
+          <div id="vade-quick-grid" class="vade-quick-grid"></div>
+          <div id="vade-law-list" class="vade-law-list"></div>
+        </section>
+
+
+        <section id="lei-seca-pro" class="glass-card section-block sx-pro-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-book-bookmark"></i> Lei Seca PRO</p>
+              <h2>Plano de leitura da lei seca</h2>
+              <span class="section-subtitle">Planejamento de artigos por lei, dificuldade, calendário e revisão.</span>
+            </div>
+            <div class="sx-head-actions">
+              <button id="lsx-refresh-laws" class="secondary-btn small" type="button">Atualizar leis</button>
+              <button id="lsx-open-vade" class="ghost-btn small" type="button">Abrir Vade</button>
+            </div>
+          </div>
+          <div class="sx-law-layout">
+            <article class="sx-panel">
+              <div class="sx-panel-head"><strong>Gerar plano</strong><span>Escolha a lei e a estratégia de leitura.</span></div>
+              <label>Lei<select id="lsx-law-select"></select></label>
+              <label>Modo<select id="lsx-mode"><option value="articles">Por artigos</option><option value="minutes">Por tempo</option></select></label>
+              <label>Minutos por sessão<input id="lsx-minutes" type="number" min="5" value="30" /></label>
+              <label>Início<input id="lsx-start-date" type="date" /></label>
+              <label>Dias por semana<input id="lsx-days-week" type="number" min="1" max="7" value="5" /></label>
+              <label><input id="lsx-include-revoked" type="checkbox" /> Incluir revogados</label>
+              <button id="lsx-generate-plan" class="primary-btn" type="button">Gerar plano</button>
+              <button id="lsx-clear-plan" class="ghost-btn" type="button">Limpar plano</button>
+            </article>
+            <article class="sx-panel">
+              <div class="sx-panel-head"><strong id="lsx-active-law">Lei ativa</strong><span id="lsx-active-law-sub">Selecione uma lei</span></div>
+              <div id="lsx-today-mission" class="sx-empty">Nenhuma missão de lei seca hoje.</div>
+              <div class="progress-track"><div id="lsx-plan-progress" class="progress-fill"></div></div>
+            </article>
+          </div>
+          <div class="sx-panel"><input id="lsx-plan-search" type="search" placeholder="Buscar no plano..." /><select id="lsx-plan-filter"><option value="all">Todas</option><option value="pending">Pendentes</option><option value="done">Concluídas</option></select><div id="lsx-plan-list"></div></div>
+        </section>
+
+
+        <section id="biblioteca-grifos" class="glass-card section-block sx-pro-section">
+          <div class="section-head"><div><p class="eyebrow"><i class="fa-solid fa-highlighter"></i> Biblioteca de Grifos</p><h2>Grifos e marcações</h2><span class="section-subtitle">Todos os grifos do Vade Mecum organizados para revisão.</span></div></div>
+          <div class="sx-kpi-grid">
+            <article><span>Total</span><strong id="sx-hl-total">0</strong><small>grifos</small></article>
+            <article><span>Leis</span><strong id="sx-hl-laws">0</strong><small>com grifos</small></article>
+            <article><span>Artigos</span><strong id="sx-hl-articles">0</strong><small>marcados</small></article>
+            <article><span>Cor</span><strong id="sx-hl-color">--</strong><small>predominante</small></article>
+          </div>
+          <div class="sx-panel">
+            <input id="sx-hl-search" type="search" placeholder="Buscar grifo..." />
+            <select id="sx-hl-discipline"></select>
+            <select id="sx-hl-law"></select>
+            <select id="sx-hl-color-filter"></select>
+            <button id="sx-highlights-refresh" class="secondary-btn small" type="button">Atualizar</button>
+            <button id="sx-highlights-export" class="ghost-btn small" type="button">Exportar</button>
+            <div id="sx-highlights-list"></div>
+          </div>
+        </section>
+
+
+        <section id="central-revisao-pro" class="glass-card section-block sx-pro-section">
+          <div class="section-head"><div><p class="eyebrow"><i class="fa-solid fa-rotate"></i> Central de Revisão PRO</p><h2>Revisões integradas</h2><span class="section-subtitle">Questões, resumos, planejamento, lei seca e grifos.</span></div></div>
+          <div class="sx-kpi-grid">
+            <article><span>Questões</span><strong id="sx-rev-q">0</strong><small>pendentes</small></article>
+            <article><span>Resumos</span><strong id="sx-rev-s">0</strong><small>pendentes</small></article>
+            <article><span>Planejamento</span><strong id="sx-rev-p">0</strong><small>blocos</small></article>
+            <article><span>Lei seca</span><strong id="sx-rev-l">0</strong><small>pendências</small></article>
+          </div>
+          <div class="sx-panel"><div id="sx-revision-guidance" class="sx-empty">Sem revisão vencida.</div><button id="sx-rev-refresh" class="secondary-btn small" type="button">Atualizar</button><button id="sx-rev-mark-visible" class="ghost-btn small" type="button">Marcar visíveis</button><div id="sx-revision-list"></div></div>
+        </section>
+
+
+        <section id="estatisticas-pro" class="glass-card section-block sx-pro-section">
+          <div class="section-head"><div><p class="eyebrow"><i class="fa-solid fa-chart-line"></i> Estatísticas PRO</p><h2>Raio-X de desempenho</h2><span id="sx-stats-period-label" class="section-subtitle">Período selecionado</span></div><button id="sx-stats-refresh" class="secondary-btn small" type="button">Atualizar</button></div>
+          <div class="sx-kpi-grid">
+            <article><span>Horas</span><strong id="sx-stat-hours">00h 00m</strong><small id="sx-stat-hours-label">período</small></article>
+            <article><span>Questões</span><strong id="sx-stat-questions">0</strong><small id="sx-stat-accuracy">--</small></article>
+            <article><span>Lei seca</span><strong id="sx-stat-law">0%</strong><small>progresso</small></article>
+            <article><span>Sequência</span><strong id="sx-stat-streak">0</strong><small>dias</small></article>
+          </div>
+          <div class="sx-stats-layout">
+            <article class="sx-panel"><strong>Disciplinas</strong><div id="sx-subject-bars"></div></article>
+            <article class="sx-panel"><strong>Questões por disciplina</strong><div id="sx-stats-question-breakdown"></div><div id="sx-question-stats"></div></article>
+          </div>
+          <div class="sx-panel"><strong>Mapa de calor</strong><div id="sx-heatmap"></div></div>
+        </section>
+
+        <section id="licenca" class="glass-card section-block license-section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow"><i class="fa-solid fa-shield-halved"></i> Licença e autoria</p>
+              <h2>Setor X — licença de uso</h2>
+              <span class="section-subtitle">Sistema offline de produtividade, estudos, questões e preparação operacional.</span>
+            </div>
+          </div>
+          <div class="license-card">
+            <strong>Matheus G. — Criador do Setor X</strong>
+            <p>Esta versão do Setor X é destinada ao uso educacional, acompanhamento de estudos e preparação para concursos. A estrutura visual, organização, módulos e identidade do projeto pertencem ao criador informado acima.</p>
+            <p>Para distribuição aos alunos, recomenda-se manter esta tela de autoria, orientar o uso com backup local e não remover os créditos do projeto.</p>
+            <div class="license-grid">
+              <div><span>Aplicação</span><strong>Offline/local</strong></div>
+              <div><span>Dados</span><strong>localStorage</strong></div>
+              <div><span>Criador</span><strong>Matheus G.</strong></div>
+              <div><span>Projeto</span><strong>Setor X</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="backup" class="glass-card section-block">
+          <div class="section-head"><div><p class="eyebrow"><i class="fa-solid fa-database"></i> Backup</p><h2>Blindagem de dados</h2></div></div>
+          <p class="muted">Os dados ficam no navegador via localStorage. Exporte o JSON e guarde em nuvem.</p>
+          <div class="backup-actions">
+            <button id="export-backup" class="primary-btn" type="button"><i class="fa-solid fa-download"></i> Exportar backup</button>
+            <label class="secondary-btn file-btn"><i class="fa-solid fa-upload"></i> Importar backup <input id="import-backup" type="file" accept="application/json" /></label>
+            <button id="reset-app" class="danger-btn" type="button"><i class="fa-solid fa-trash"></i> Resetar sistema</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="qx-modal-root" class="qx-modal-root" hidden>
+    <div class="qx-modal-backdrop" data-qx-modal-close></div>
+    <div class="qx-modal-box" role="dialog" aria-modal="true">
+      <button id="qx-modal-close" class="qx-modal-close" type="button" title="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      <div id="qx-modal-content" class="qx-modal-content"></div>
+    </div>
+  </div>
+
+  <div id="qx-focus-root" class="qx-modal-root qx-focus-root" hidden>
+    <div class="qx-modal-backdrop" data-qx-focus-close></div>
+    <div class="qx-focus-box" role="dialog" aria-modal="true">
+      <button id="qx-focus-close" class="qx-modal-close" type="button" title="Sair do modo foco"><i class="fa-solid fa-xmark"></i></button>
+      <div id="qx-focus-content" class="qx-focus-content"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/setorx-pro-v26-cleanup.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/app.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/qx-enhancements.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/vade-imported-laws.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/vade-mecum.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/workspace-pro.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/setorx-pro-v23.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/setorx-pro-v25-stability.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/setorx-pro-v27-hotfix.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/setorx-pro-v30-stats-comando-final.js?v=20260519-mentor-final"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/online-config.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/online-pro.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/online-mentor-pro.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/v30-module-router.js?v=20260519-mentor-final"></script>
+  <script src="assets/js/setorx-critical-fix-v7.js?v=20260519-v7-critical"></script>
+</body>
+</html>

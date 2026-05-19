@@ -480,3 +480,30 @@ body.workspace-active main.content > section.workspace-visible{display:block!imp
   color:var(--gold2);
   margin-left:auto;
 }
+
+/* HOTFIX V5 — modal real do Vade e diagnóstico mentor */
+.vade-modal-root{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:18px;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);overflow:auto}
+.vade-modal-root[hidden]{display:none!important}
+.vade-modal-backdrop{position:absolute;inset:0}
+.vade-modal-box{position:relative;z-index:2;width:min(1180px,96vw);max-height:92vh;overflow:auto;border:1px solid rgba(255,202,100,.20);border-radius:26px;background:#07111f;box-shadow:0 30px 100px rgba(0,0,0,.55);padding:18px}
+.vade-modal-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.09);padding-bottom:14px;margin-bottom:14px}
+.vade-modal-head h2{margin:.2rem 0;color:#fff}
+.vade-modal-head span{display:block;color:var(--muted)}
+.vade-modal-tools{display:grid;grid-template-columns:1fr 190px auto auto;gap:10px;align-items:center;margin-bottom:12px}
+.vade-modal-tools input,.vade-modal-tools select{min-height:42px;border-radius:12px;border:1px solid var(--border);background:rgba(0,0,0,.22);color:var(--text);padding:8px 10px}
+.vade-checkline{display:flex;align-items:center;gap:7px;color:var(--muted);font-weight:850}
+.vade-count{color:var(--gold2);font-weight:950}
+.vade-mini-timer{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.04);margin-bottom:12px}
+.vade-mini-timer strong{color:var(--gold2)}
+.vade-mini-timer span{color:var(--muted)}
+.vade-articles{display:grid;gap:12px}
+.vade-side-panel,.vade-highlight-modal{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.65);display:grid;place-items:center;padding:18px}
+.vade-side-panel[hidden],.vade-highlight-modal[hidden]{display:none!important}
+.vade-side-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px}
+.vade-side-panel>div,.vade-highlight-box{width:min(760px,94vw);max-height:90vh;overflow:auto;border:1px solid rgba(255,202,100,.20);border-radius:24px;background:#07111f;padding:18px}
+.vade-highlight-box textarea{width:100%;border:1px solid var(--border);border-radius:14px;background:rgba(0,0,0,.22);color:var(--text);padding:10px;margin-bottom:10px}
+.vade-color-grid,.vade-style-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.vade-color-grid button,.vade-style-grid button{border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.06);color:var(--text);padding:8px 10px}
+#mentor-pro-message.success,.online-auth-state.success{border-color:rgba(57,217,138,.35)!important;background:rgba(57,217,138,.08)!important;color:#8ff2bd!important}
+#mentor-pro-message.error,.online-auth-state.error{border-color:rgba(255,107,107,.35)!important;background:rgba(255,107,107,.08)!important;color:#ffb4b4!important}
+@media(max-width:800px){.vade-modal-tools{grid-template-columns:1fr}.vade-modal-head{display:grid}}

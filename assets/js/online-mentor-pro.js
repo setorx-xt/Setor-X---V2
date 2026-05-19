@@ -47,7 +47,7 @@
     window.dispatchEvent(new CustomEvent("setorx:auth-changed",{detail:{mentor:isMentor(),active:canAccess(),profile}}));
   }
   async function safeQuery(label,promise,fallback=[]){
-    try{const res=await promise;if(res.error){console.error(label,res.error);return fallback;}return res.data??fallback;}catch(e){console.error(label,e);return fallback;}
+    try{const res=await promise;if(res.error){console.error(label,res.error);state.lastError=`${label}: ${res.error.message||res.error.code||"erro"}`;return fallback;}return res.data??fallback;}catch(e){console.error(label,e);state.lastError=`${label}: ${e.message||"erro inesperado"}`;return fallback;}
   }
   async function loadAll(){
     const err=connect();
@@ -61,6 +61,7 @@
     }else if(pr.error){state.lastError=pr.error.message;}
     else profile=pr.data;
     state.ready=true;
+    state.lastError="";
     state.ranking=await safeQuery("ranking",sb.from("profiles").select("id,email,full_name,nickname,role,status,active,contest_target,xp_total,created_at").eq("status","active").order("xp_total",{ascending:false}).limit(100));
     state.questions=await safeQuery("questions",sb.from("collective_questions").select("*").order("created_at",{ascending:false}));
     if(isMentor()){
@@ -161,26 +162,53 @@
     return state.students.filter(s=>s.role!=="mentor").map(s=>{const plan=latestPlan(s.id),pct=planProgressPct(plan,s.id),q=questionsDone(s.id),gs=goalsFor(s.id);return `<article class="mentor-student-row ${esc(s.status)}"><div class="mentor-student-main"><strong>${esc(userName(s))}</strong><span>${esc(s.email)} • ${esc(s.contest_target||"sem concurso")} • ${esc(s.status)}</span><div class="mentor-progress"><div style="width:${pct}%"></div></div><small>Plano: ${plan?esc(plan.week_label||plan.contest||"enviado"):"sem plano"} • Execução: ${pct}% • QX: ${q} • Metas: ${gs.length}</small></div><div class="mentor-actions"><button class="secondary-btn small" data-mentor-activate="${s.id}">Ativar</button><button class="ghost-btn small" data-mentor-pending="${s.id}">Pendente</button><button class="online-danger ghost-btn small" data-mentor-block="${s.id}">Bloquear</button><button class="ghost-btn small" data-mentor-fill-plan="${s.id}">Planejar</button></div></article>`}).join("")||`<div class="sx-empty">Nenhum aluno cadastrado.</div>`;
   }
   function renderMentor(){
-    ensureMentorSection();const sec=$("#online-mentor");if(!sec)return;sec.hidden=!isMentor();if(!isMentor())return;
-    const active=state.students.filter(s=>s.status==="active").length,pending=state.students.filter(s=>s.status==="pending").length,blocked=state.students.filter(s=>s.status==="blocked").length,top=state.ranking[0];
+    ensureMentorSection();
+    const sec=$("#online-mentor");
+    const msg=$("#mentor-pro-message");
+    if(!sec) return;
+    sec.hidden=false;
+
+    if(state.lastError){
+      if(msg){msg.textContent="Diagnóstico: "+state.lastError; msg.className="online-auth-state error";}
+    }else if(!sb){
+      if(msg){msg.textContent="Supabase não conectado. Confira assets/js/online-config.js."; msg.className="online-auth-state error";}
+    }else if(!user){
+      if(msg){msg.textContent="Faça login para carregar a área do mentor."; msg.className="online-auth-state info";}
+    }else if(!profile){
+      if(msg){msg.textContent="Perfil ainda não carregado. Clique em Sincronizar."; msg.className="online-auth-state info";}
+    }else if(!isMentor()){
+      if(msg){msg.textContent=`Conta atual: ${profile.email||"usuário"} • role=${profile.role||"--"} • status=${profile.status||"--"}. Para usar a área do mentor, rode supabase/promover-mentor.sql e faça login novamente.`; msg.className="online-auth-state error";}
+      return;
+    }else{
+      if(msg){msg.textContent="Área do mentor carregada. Você pode aprovar alunos, importar planejamentos e acompanhar estatísticas."; msg.className="online-auth-state success";}
+    }
+
+    const active=state.students.filter(s=>s.status==="active").length;
+    const pending=state.students.filter(s=>s.status==="pending").length;
+    const blocked=state.students.filter(s=>s.status==="blocked").length;
+    const top=state.ranking[0];
     $("#mentor-kpis").innerHTML=`<article><span>Ativos</span><strong>${active}</strong><small>alunos liberados</small></article><article><span>Pendentes</span><strong>${pending}</strong><small>aguardando</small></article><article><span>Bloqueados</span><strong>${blocked}</strong><small>controle de acesso</small></article><article><span>Planos</span><strong>${state.plans.length}</strong><small>enviados</small></article><article><span>Líder</span><strong>${esc(userName(top))}</strong><small>${n(top?.xp_total)} XP</small></article>`;
-    const cards=renderStudentCards();$("#mentor-overview-list").innerHTML=cards;$("#mentor-student-list").innerHTML=cards;
+
+    const cards=renderStudentCards();
+    $("#mentor-overview-list").innerHTML=cards;
+    $("#mentor-student-list").innerHTML=cards;
+
     const planSel=$("#mentor-plan-student"), goalSel=$("#mentor-goal-student");
     const currentPlan = state.selectedPlanStudent || planSel?.value || "";
     const currentGoal = state.selectedGoalStudent || goalSel?.value || "";
     const studentsOpts = state.students.filter(s=>s.role!=="mentor");
     const opts=studentsOpts.map(s=>`<option value="${s.id}">${esc(userName(s))} — ${esc(s.email)}</option>`).join("");
     if(planSel){
-      planSel.innerHTML=opts||`<option value="">Nenhum aluno</option>`;
+      planSel.innerHTML=opts||`<option value="">Nenhum aluno encontrado</option>`;
       if(currentPlan && [...planSel.options].some(o=>o.value===currentPlan)) planSel.value=currentPlan;
       state.selectedPlanStudent=planSel.value||"";
     }
     if(goalSel){
-      goalSel.innerHTML=opts||`<option value="">Nenhum aluno</option>`;
+      goalSel.innerHTML=opts||`<option value="">Nenhum aluno encontrado</option>`;
       if(currentGoal && [...goalSel.options].some(o=>o.value===currentGoal)) goalSel.value=currentGoal;
       state.selectedGoalStudent=goalSel.value||"";
     }
-    renderPlanList();renderQXList();renderGoalList();
+    renderPlanList(); renderQXList(); renderGoalList();
   }
   function renderPlanList(){const box=$("#mentor-plan-list");if(!box)return;box.innerHTML=state.plans.map(p=>{const s=state.students.find(x=>x.id===p.user_id),pct=planProgressPct(p,p.user_id),blocks=planBlocks(p).length;return `<article class="mentor-item-row"><div><strong>${esc(p.week_label||p.contest||"Planejamento")}</strong><span>${esc(userName(s))} • ${esc(p.contest||"")} • ${blocks} bloco(s) • ${pct}% concluído</span></div><div class="mentor-actions"><button class="ghost-btn small" data-plan-copy="${p.id}">Copiar JSON</button><button class="online-danger ghost-btn small" data-plan-delete="${p.id}">Excluir</button></div></article>`}).join("")||`<div class="sx-empty">Nenhum planejamento enviado.</div>`}
   function renderQXList(){const box=$("#mentor-qx-list");if(!box)return;box.innerHTML=state.questions.map(q=>`<article class="mentor-item-row"><div><strong>${esc(q.discipline)}</strong><span>${esc(q.subject||"")} • ${esc(q.type)} • gabarito: ${esc(q.answer)}</span></div><div class="mentor-actions"><button class="online-danger ghost-btn small" data-qx-delete="${q.id}">Excluir</button></div></article>`).join("")||`<div class="sx-empty">Nenhuma questão coletiva publicada.</div>`}
@@ -201,7 +229,7 @@
     state.selectedPlanStudent=sid;
     if(!sid) return toast("Selecione um aluno.","error");
     let plan;
-    try{ plan=parsePlan($("#mentor-plan-raw").value); }catch(err){ return toast(err.message,"error"); }
+    try{ if(!$("#mentor-plan-raw").value.trim()) return toast("Cole o planejamento JSON ou Markdown antes de enviar.","error"); plan=parsePlan($("#mentor-plan-raw").value); }catch(err){ return toast(err.message,"error"); }
     const student=state.students.find(s=>s.id===sid);
     const contest=$("#mentor-plan-contest").value.trim()||plan.concurso||plan.contest||student?.contest_target||"";
     const week=$("#mentor-plan-week").value.trim()||plan.semana||plan.week||"";

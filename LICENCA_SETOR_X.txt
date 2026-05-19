@@ -1,0 +1,15 @@
+Setor X — Licença de Uso Educacional
+
+Criador: Matheus G.
+Projeto: Setor X
+
+Esta aplicação foi organizada para uso educacional, acompanhamento de estudos, preparação para concursos e controle pessoal de desempenho.
+
+Condições recomendadas de uso:
+1. Manter os créditos de autoria do projeto.
+2. Orientar os usuários a fazer backup dos dados, pois o sistema utiliza armazenamento local do navegador.
+3. Não remover a tela de licença/autoria.
+4. Distribuir aos alunos apenas versões verificadas e validadas.
+
+Observação:
+O Setor X é uma aplicação local/offline em HTML, CSS e JavaScript. Os dados ficam no navegador do usuário via localStorage.

@@ -1246,19 +1246,84 @@ function defaultState(){return{activeLaw:"cf88",vadeGroup:"Todos",showRevoked:fa
   }
   setInterval(updateMiniTimer,1000);
 
+  function ensureVadeModalRoot(){
+    if($("#vade-modal-root")) return;
+    document.body.insertAdjacentHTML("beforeend", `
+      <div id="vade-modal-root" class="vade-modal-root" hidden>
+        <div class="vade-modal-backdrop" data-vade-close></div>
+        <section class="vade-modal-box">
+          <header class="vade-modal-head">
+            <div>
+              <p id="vade-breadcrumb" class="eyebrow">Vade Mecum</p>
+              <h2 id="vade-modal-title">Lei</h2>
+              <span id="vade-modal-subtitle">Artigos para leitura, grifo e revisão</span>
+            </div>
+            <div class="vade-modal-actions">
+              <button id="open-vade-highlights" class="secondary-btn small" type="button"><i class="fa-solid fa-highlighter"></i> Grifos</button>
+              <button id="vade-close" class="ghost-btn small" type="button" data-vade-close>Fechar</button>
+            </div>
+          </header>
+          <div class="vade-modal-tools">
+            <input id="vade-article-search" type="search" placeholder="Buscar artigo ou expressão..." />
+            <select id="vade-status-filter">
+              <option value="all">Todos</option>
+              <option value="read">Lidos</option>
+              <option value="unread">Não lidos</option>
+              <option value="review">Para revisar</option>
+              <option value="highlighted">Com grifos</option>
+            </select>
+            <label class="vade-checkline"><input id="vade-show-revoked" type="checkbox" /> Mostrar revogados/vetados</label>
+            <span id="vade-article-count" class="vade-count">0 item(ns)</span>
+          </div>
+          <div class="vade-mini-timer"><strong id="vade-mini-time">--:--</strong><span id="vade-mini-mode">timer ativo quando iniciado</span></div>
+          <div id="vade-articles" class="vade-articles"></div>
+        </section>
+      </div>
+      <div id="vade-highlights-panel" class="vade-side-panel" hidden>
+        <div class="vade-side-head"><strong>Grifos salvos</strong><button class="ghost-btn small" data-vade-panel-close>Fechar</button></div>
+        <div id="vade-highlights-list"></div>
+      </div>
+      <div id="vade-highlight-modal" class="vade-highlight-modal" hidden>
+        <form id="vade-highlight-form" class="vade-highlight-box">
+          <input id="vade-highlight-law" type="hidden" />
+          <input id="vade-highlight-article" type="hidden" />
+          <div class="vade-side-head"><strong id="vade-highlight-title">Grifar seleção</strong><button type="button" class="ghost-btn small" data-vade-highlight-close>Fechar</button></div>
+          <textarea id="vade-highlight-text" rows="5" placeholder="Texto a grifar"></textarea>
+          <textarea id="vade-highlight-note" rows="3" placeholder="Comentário opcional"></textarea>
+          <div class="vade-color-grid">
+            <button type="button" data-vade-color="#fff3a3" class="active">Amarelo</button>
+            <button type="button" data-vade-color="#b7f7c7">Verde</button>
+            <button type="button" data-vade-color="#b8d7ff">Azul</button>
+            <button type="button" data-vade-color="#ffd1dc">Rosa</button>
+          </div>
+          <div class="vade-style-grid">
+            <button type="button" data-vade-style="bold">Negrito</button>
+            <button type="button" data-vade-style="italic">Itálico</button>
+            <button type="button" data-vade-style="underline">Sublinhado</button>
+          </div>
+          <button class="primary-btn" type="submit">Salvar grifo</button>
+        </form>
+      </div>
+    `);
+  }
+  
   function openVade(lawId){
     if(lawId) st.activeLaw=lawId;
-    $("#vade-modal-root").hidden=false;
+    ensureVadeModalRoot();
+    const root=$("#vade-modal-root");
+    if(!root){ toast?.("Não foi possível abrir o Vade Mecum."); return; }
+    root.hidden=false;
     document.body.classList.add("vade-open");
-    renderAll();
+    try{ renderAll(); }catch(err){ console.error("Erro ao renderizar lei no Vade",err); }
     updateMiniTimer();
+    setTimeout(()=>root.scrollIntoView({behavior:"smooth",block:"start"}),40);
   }
-  function closeVade(){ $("#vade-modal-root").hidden=true; document.body.classList.remove("vade-open");}
+  function closeVade(){ const r=$("#vade-modal-root"); if(r) r.hidden=true; document.body.classList.remove("vade-open");}
   function openHighlightPanel(){
     $("#vade-highlights-panel").hidden=false;
     renderHighlightsPanel();
   }
-  function closeHighlightPanel(){ $("#vade-highlights-panel").hidden=true; }
+  function closeHighlightPanel(){ const p=$("#vade-highlights-panel"); if(p) p.hidden=true; }
   function openHighlightModal(lawId, articleId){
     const law=lawById(lawId), art=law.articles.find(a=>a.id===articleId);
     const selected=String(window.getSelection?.()||"").trim();
@@ -1272,7 +1337,7 @@ function defaultState(){return{activeLaw:"cf88",vadeGroup:"Todos",showRevoked:fa
     $("[data-vade-color='#fff3a3']")?.classList.add("active");
     $("#vade-highlight-modal").hidden=false;
   }
-  function closeHighlightModal(){ $("#vade-highlight-modal").hidden=true; }
+  function closeHighlightModal(){ const m=$("#vade-highlight-modal"); if(m) m.hidden=true; }
 
   function renderLauncher(){
     const totalArts=vadeDB.reduce((a,l)=>a+l.articles.length,0);

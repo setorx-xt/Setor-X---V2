@@ -1,9 +1,0 @@
-{
-  "name": "setor-x-pro-v4-qx-refinado",
-  "version": "4.2.0",
-  "private": true,
-  "description": "Setor X V4 refinado: Banco QX profissional, simulados, meta operacional, TAF flexível e uso offline.",
-  "scripts": {
-    "start": "npx serve ."
-  }
-}

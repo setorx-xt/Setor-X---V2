@@ -1,9 +1,0 @@
-/* Setor X V27 Hotfix: navegação, abertura e revisão D+1 */
-main.content > section[hidden]{display:none!important}
-body.workspace-active main.content > section.workspace-visible{display:block!important;visibility:visible!important;opacity:1!important}
-body.workspace-active main.content > section.workspace-hidden{display:none!important}
-.sidebar-nav .nav-link{cursor:pointer;user-select:none}
-.sx-revision-item.today .sx-rev-title::after{content:"D+1";margin-left:8px;padding:3px 8px;border-radius:999px;background:rgba(220,174,79,.14);color:#ffdf8a;font-size:.68rem;font-weight:950;letter-spacing:.06em}
-.sx-revision-item.late{border-color:rgba(248,113,113,.28)!important}
-.workspace-title-card{position:relative;z-index:1}
-.topbar{will-change:transform}.content{contain:layout style}
